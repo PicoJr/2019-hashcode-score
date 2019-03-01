@@ -1,4 +1,4 @@
-# Hash Code 2018 Score Calculator
+# Hash Code 2019 Score Calculator
 
 **TL;DR** Compute score for Hash Code 2019 Qualification Round.
 
