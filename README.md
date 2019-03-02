@@ -10,3 +10,6 @@
 score: 2
 ```
 
+## TODO
+
+- add `--check` option: check output file is valid
