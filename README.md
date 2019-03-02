@@ -76,7 +76,7 @@ use `--abort` option to abort on 1st error.
 ./score.py res/a_example.txt res/a_example_error_all.out --check --abort
 ```
 
-```bash
+```
 INFO:root:parsing res/a_example.txt
 INFO:root:parsing res/a_example.txt done
 INFO:root:4 images found (2 V,2 H)
