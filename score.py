@@ -9,7 +9,7 @@ class InvalidOutputFileException(Exception):
     pass
 
 
-class Image(object):
+class Image:
     def __init__(self, image_id, orientation, tags):
         self.image_id = image_id
         self.orientation = orientation
@@ -24,7 +24,8 @@ class Image(object):
         :param images: [VVVV] | [HVV] | [VVH] | [HH]
         :return: score
         """
-        assert 1 < len(images) <= 4, images
+        if not 1 < len(images) <= 4:
+            raise AssertionError()
         orientations = ''.join(img.orientation for img in images)
         if orientations == 'VVVV':
             tags_set = images[0].tags | images[1].tags
@@ -36,7 +37,8 @@ class Image(object):
             tags_set = images[0].tags | images[1].tags
             other_tags_set = images[2].tags
         else:  # 'HH'
-            assert orientations == 'HH'
+            if orientations != "HH":
+                raise AssertionError()
             tags_set = images[0].tags
             other_tags_set = images[1].tags
         return Image.score_tags(tags_set, other_tags_set)
@@ -55,7 +57,7 @@ class Image(object):
         verticals, horizontals = 0, 0
         logging.info("parsing %s", input_file_path)
         with open(input_file_path, 'r') as input_file:
-            nb = int(input_file.readline())  # images nb
+            image_nb = int(input_file.readline())  # images nb
             images = []
             for i, img_txt in enumerate(input_file.readlines()):
                 data = img_txt.rstrip().split(' ')
@@ -67,7 +69,7 @@ class Image(object):
                 else:  # H
                     horizontals += 1
             logging.info('parsing %s done', input_file_path)
-            logging.info('%d images found (%d V,%d H)', nb, verticals, horizontals)
+            logging.info('%d images found (%d V,%d H)', image_nb, verticals, horizontals)
             return images
 
     @staticmethod
@@ -81,7 +83,7 @@ class Image(object):
         slides = []
         with open(output_file_path, 'r') as output_file:
             _ = output_file.readline()  # slide show size
-            for output_line, line in enumerate(output_file.readlines()):
+            for line in output_file.readlines():
                 image_id_tuple = tuple((int(image_id) for image_id in line.rstrip().split(' ')))
                 if len(image_id_tuple) == 2:
                     img0 = Image(image_id_tuple[0], "V", [])
@@ -131,8 +133,7 @@ class Image(object):
         logging.info("parsing %s: done", output_file_path)
         if not valid:
             raise InvalidOutputFileException("invalid output file: {}".format(output_file_path))
-        else:
-            logging.info("%s is valid", output_file_path)
+        logging.info("%s is valid", output_file_path)
         return slides
 
     @staticmethod

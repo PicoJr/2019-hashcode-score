@@ -20,7 +20,7 @@ use `--check` option.
 ./score.py res/a_example.txt res/a_example_error_id_max.out --check
 ```
 
-```
+``` text
 INFO:root:parsing res/a_example.txt
 INFO:root:parsing res/a_example.txt done
 INFO:root:4 images found (2 V,2 H)
@@ -37,7 +37,7 @@ score : 0
 ./score.py res/a_example.txt res/a_example_error_same_id_twice.out --check
 ```
 
-```
+``` text
 INFO:root:parsing res/a_example.txt
 INFO:root:parsing res/a_example.txt done
 INFO:root:4 images found (2 V,2 H)
@@ -54,7 +54,7 @@ score : 0
 ./score.py res/a_example.txt res/a_example_error_orientation.out --check
 ```
 
-```
+``` text
 INFO:root:parsing res/a_example.txt
 INFO:root:parsing res/a_example.txt done
 INFO:root:4 images found (2 V,2 H)
@@ -76,7 +76,7 @@ use `--abort` option to abort on 1st error.
 ./score.py res/a_example.txt res/a_example_error_all.out --check --abort
 ```
 
-```
+``` text
 INFO:root:parsing res/a_example.txt
 INFO:root:parsing res/a_example.txt done
 INFO:root:4 images found (2 V,2 H)
