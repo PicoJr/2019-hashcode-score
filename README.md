@@ -1,5 +1,7 @@
 # Hash Code 2019 Score Calculator
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/72d31c842e3241a3ba15dd575f3ee6f4)](https://app.codacy.com/app/PicoJr/2019-hashcode-score?utm_source=github.com&utm_medium=referral&utm_content=PicoJr/2019-hashcode-score&utm_campaign=Badge_Grade_Dashboard)
+
 **TL;DR** Compute score and check output for Hash Code 2019 Qualification Round.
 
 ## Usage
